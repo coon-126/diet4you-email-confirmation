@@ -14,7 +14,7 @@
         
         body {
             font-family: 'Heebo', Arial, sans-serif;
-            background: linear-gradient(135deg, #16a34a 0%, #22c55e 50%, #4ade80 100%);
+            background: #1f2937;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -29,25 +29,15 @@
         }
         
         .container {
-            background: white;
+            background: #1f2937;
             padding: 50px 40px;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid #374151;
             text-align: center;
             max-width: 600px;
             width: 100%;
             position: relative;
             overflow: hidden;
-        }
-        
-        .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #16a34a, #22c55e, #4ade80);
         }
         
         .success-icon {
@@ -72,7 +62,7 @@
         }
         
         h1 {
-            color: #1f2937;
+            color: #ffffff;
             margin-bottom: 20px;
             font-size: 28px;
             font-weight: 600;
@@ -80,7 +70,7 @@
         }
         
         .message {
-            color: #6b7280;
+            color: #d1d5db;
             margin-bottom: 40px;
             line-height: 1.6;
             font-size: 18px;
@@ -88,12 +78,12 @@
         }
         
         .success-message {
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
+            background: #064e3b;
+            border: 1px solid #16a34a;
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 30px;
-            color: #15803d;
+            color: #4ade80;
             font-weight: 500;
         }
         
@@ -126,21 +116,22 @@
         }
         
         .button-secondary {
-            background: #f3f4f6;
-            color: #374151;
-            border: 1px solid #d1d5db;
+            background: transparent;
+            color: #d1d5db;
+            border: 1px solid #6b7280;
         }
         
         .button-secondary:hover {
-            background: #e5e7eb;
+            background: #374151;
+            border-color: #9ca3af;
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
         
         .footer {
             margin-top: 40px;
             padding-top: 30px;
-            border-top: 1px solid #e5e7eb;
+            border-top: 1px solid #374151;
             color: #9ca3af;
             font-size: 14px;
         }
@@ -154,22 +145,80 @@
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            margin-bottom: 10px;
-            color: #6b7280;
+            margin-bottom: 15px;
+            color: #d1d5db;
+            padding: 15px;
+            background: #374151;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .step:hover {
+            background: #4b5563;
+            transform: translateX(-5px);
         }
         
         .step-number {
             background: #16a34a;
             color: white;
-            width: 25px;
-            height: 25px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 600;
+            margin-left: 15px;
+            flex-shrink: 0;
+        }
+        
+        .step-text {
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .features {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 10px;
+            color: #d1d5db;
+            font-size: 16px;
+        }
+        
+        .feature-icon {
+            color: #16a34a;
+            font-size: 20px;
             margin-left: 10px;
+        }
+        
+        .main-button {
+            background: #16a34a;
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .main-button:hover {
+            background: #15803d;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(22, 163, 74, 0.4);
         }
         
         @media (max-width: 480px) {
@@ -193,6 +242,14 @@
                 flex-direction: column;
                 align-items: center;
             }
+            
+            .step {
+                padding: 12px;
+            }
+            
+            .step-text {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -209,15 +266,34 @@
         <div class="steps">
             <div class="step">
                 <div class="step-number">1</div>
-                <span>חזור לאפליקציה</span>
+                <div class="step-text">חזור לאפליקציית Diet 4 You</div>
             </div>
             <div class="step">
                 <div class="step-number">2</div>
-                <span>התחבר עם האימייל והסיסמה שלך</span>
+                <div class="step-text">התחבר עם האימייל והסיסמה שלך</div>
             </div>
             <div class="step">
                 <div class="step-number">3</div>
-                <span>התחל את המסע שלך לחיים בריאים יותר</span>
+                <div class="step-text">התחל את המסע שלך לחיים בריאים יותר</div>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">📊</span>
+                <span>מעקב אחר קלוריות יומי</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🤖</span>
+                <span>חישוב קלוריות חכם עם AI</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">💬</span>
+                <span>צ'אט תזונה עם בינה מלאכותית</span>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">📈</span>
+                <span>מעקב התקדמות שבועי</span>
             </div>
         </div>
         
@@ -227,16 +303,19 @@
         </p>
         
         <div class="button-group">
-            <a href="javascript:window.close();" class="button">
-                סגור חלון זה
+            <a href="https://diet-4-you-450053075714.us-west1.run.app/" class="main-button">
+                חזור לאפליקציה
             </a>
-            <a href="https://www.google.com" class="button button-secondary">
-                חזור לגוגל
+        </div>
+        
+        <div class="button-group">
+            <a href="javascript:window.close();" class="button button-secondary">
+                סגור חלון זה
             </a>
         </div>
         
         <div class="footer">
-            <p>Diet 4 You - המסע שלך לחיים בריאים יותר</p>
+            <p><strong>Diet 4 You</strong> - המסע שלך לחיים בריאים יותר</p>
             <p>© 2024 כל הזכויות שמורות</p>
         </div>
     </div>
